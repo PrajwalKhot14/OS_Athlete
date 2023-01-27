@@ -4,7 +4,7 @@ import AthleteProfile from "../models/athleteProfile.js";
 export const getAthlete = async (req, res) => {
     const { page } = req.query;
     try {
-        const LIMIT = 4;
+        const LIMIT = 100;
         const startIndex = (Number(page) - 1) * LIMIT;
         const total = await AthleteProfile.countDocuments({});
         const athleteProf = await AthleteProfile.find()
@@ -22,9 +22,24 @@ export const getAthlete = async (req, res) => {
     }
 };
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+export const getOneAthlete = async (req, res) => {
+    const { id } = req.query;
+    try {
+        const athlete = await AthleteProfile.findById(id);
+        res.json({
+            athlete,
+        });
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
+>>>>>>> Stashed changes
 export const getAthleteBySearch = async (req, res) => {
     const { searchQuery } = req.query;
 

@@ -1,7 +1,22 @@
+<<<<<<< Updated upstream
 import * as api from '../api';
 import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
+=======
+import * as api from "../api";
+import { FETCH_ONE, FETCH_BY_SEARCH, FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+>>>>>>> Stashed changes
 
 // Action creators
+export const getAthlete = (id) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchAthlete(id);
+        console.log(data)
+        dispatch({ type: FETCH_ONE, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const getAthletes = (page) => async (dispatch) => {
     try {
 <<<<<<< HEAD

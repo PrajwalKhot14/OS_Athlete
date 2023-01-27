@@ -4,6 +4,7 @@
 import {
     FETCH_BY_SEARCH,
     FETCH_ALL,
+    FETCH_ONE,
     CREATE,
     UPDATE,
     DELETE,
@@ -28,7 +29,9 @@ export default (state = [], action) => {
                 numberOfPages: action.payload.numberOfPages,
             };
         case FETCH_BY_SEARCH:
-            return {...state, athletes: action.payload};
+            return { ...state, athletes: action.payload };
+        case FETCH_ONE:
+            return { ...state, athlete: action.payload };
         case CREATE:
             return [...state, action.payload];
         case UPDATE:

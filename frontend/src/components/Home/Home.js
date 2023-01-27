@@ -70,10 +70,14 @@ const Home = () => {
                             currentId={currentId}
                             setCurrentId={setCurrentId}
                         />
+<<<<<<< Updated upstream
                         <Paper elevation={6}>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+                        <Paper elevation={0}>
+>>>>>>> Stashed changes
                             <Pagination page={page}/>
 =======
                             <Pagination/>

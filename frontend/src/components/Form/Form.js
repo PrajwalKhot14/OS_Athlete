@@ -5,13 +5,15 @@ import useStyles from "./styles";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { createAthlete, updateAthlete } from "../../actions/athletes";
+import Calendar from 'moedim';
+
 
 
 
 const Form = ({currentId, setCurrentId}) => {
     const [athleteData, setAthleteData] = useState({
         name: "",
-        // dob: "",
+        dob: "",
         location: "",
         team: "",
         gender: "",
@@ -32,7 +34,7 @@ const Form = ({currentId, setCurrentId}) => {
     const clear = () => {
         setCurrentId(null);
         setAthleteData({name: "",
-        // dob: "",
+        dob: "",
         location: "",
         team: "",
         gender: "",
@@ -71,6 +73,24 @@ const Form = ({currentId, setCurrentId}) => {
                         setAthleteData({ ...athleteData, name: e.target.value })
                     }
                 />
+                <TextField
+                    name="dob"
+                    variant="outlined"
+                    label="DOB"
+                    fullWidth
+                    value={athleteData.dob}
+                    onChange={(e) =>
+                        setAthleteData({
+                            ...athleteData,
+                            dob: e.target.value,
+                        })
+                    }
+                />
+                {/* <Calendar value={athleteData.dob} onChange={(e) =>
+                        setAthleteData({
+                            ...athleteData,
+                            dob: e.target.value,
+                        })} /> */}
                 <TextField
                     name="location"
                     variant="outlined"

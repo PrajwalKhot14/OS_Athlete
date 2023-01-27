@@ -5,6 +5,7 @@ import {
     CardMedia,
     Button,
     Typography,
+    ButtonBase
 } from "@material-ui/core";
 import React from "react";
 import useStyles from "./styles";
@@ -12,14 +13,22 @@ import ClearIcon from "@mui/icons-material/Clear";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import moment from "moment";
 import { useDispatch } from "react-redux";
+import {useHistory} from 'react-router-dom'
 
 import { deleteAthlete } from "../../../actions/athletes";
 
 const Athlete = ({ athlete, setCurrentId }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const history = useHistory()
+    const openAthlete = () => history.push(`/athlete/${athlete._id}`)
     return (
+<<<<<<< Updated upstream
         <Card className={classes.card}>
+=======
+        <Card className={classes.card} raised elevation={6}>
+            
+>>>>>>> Stashed changes
             <CardMedia
                 className={classes.media}
                 image={athlete.profile_image}
@@ -56,6 +65,7 @@ const Athlete = ({ athlete, setCurrentId }) => {
                     {athlete.about}
                 </Typography>
             </CardContent>
+            
 
             <CardActions className={classes.cardActions}>
                 <Button
@@ -66,6 +76,9 @@ const Athlete = ({ athlete, setCurrentId }) => {
                     <ClearIcon fontSize="small" />
                     Remove
                 </Button>
+                <Button className={classes.cardActions}
+            onClick={openAthlete}>For more
+            </Button>
             </CardActions>
         </Card>
     );
