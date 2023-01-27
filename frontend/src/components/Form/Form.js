@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import useStyles from "./styles";
 import athletes from "../../reducers/athletes";
 import FileBase from "react-file-base64";
-import { useDispatch } from "react-redux";
-import { createAthlete } from "../../actions/athletes";
+import { useDispatch, useSelector } from "react-redux";
+import { createAthlete, updateAthlete } from "../../actions/athletes";
 
-const Form = () => {
+
+
+const Form = ({currentId, setCurrentId}) => {
     const [athleteData, setAthleteData] = useState({
         name: "",
         // dob: "",
@@ -18,13 +20,38 @@ const Form = () => {
         interests: "",
         profile_image: "",
     });
+    
+    const athlete = useSelector((state) => currentId ? state.athletes.find((p) => p._id === currentId): null);
     const classes = useStyles();
     const dispatch = useDispatch();
+
+    useEffect(() =>{
+        if(athlete) setAthleteData(athlete);
+    }, [athlete])
+
+    const clear = () => {
+        setCurrentId(null);
+        setAthleteData({name: "",
+        // dob: "",
+        location: "",
+        team: "",
+        gender: "",
+        sports: "",
+        about: "",
+        interests: "",
+        profile_image: "",})
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(createAthlete(athleteData));
+        if (currentId) {
+            dispatch(updateAthlete(currentId, athleteData));
+        } else {
+            dispatch(createAthlete(athleteData));
+        }
+        clear()
     };
-    const clear = () => {};
+
     return (
         <Paper className={classes.paper}>
             <form
@@ -33,7 +60,7 @@ const Form = () => {
                 className={`${classes.root} ${classes.form}`}
                 onSubmit={handleSubmit}
             >
-                <Typography variant="h6">Athlete Details</Typography>
+                <Typography variant="h6">{currentId ? 'Editing ': null}Athlete Details</Typography>
                 <TextField
                     name="name"
                     variant="outlined"

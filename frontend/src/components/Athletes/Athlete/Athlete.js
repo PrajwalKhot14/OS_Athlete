@@ -8,15 +8,16 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import useStyles from "./styles";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ClearIcon from "@mui/icons-material/Clear";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import moment from "moment";
+import { useDispatch } from "react-redux";
 
-const Athlete = ({ athlete }) => {
+import { deleteAthlete } from "../../../actions/athletes";
+
+const Athlete = ({ athlete, setCurrentId }) => {
     const classes = useStyles();
-    console.log(athlete);
-    moment().diff(athlete.dob, "years");
+    const dispatch = useDispatch();
     return (
         <Card className={classes.card}>
             <CardMedia
@@ -36,7 +37,7 @@ const Athlete = ({ athlete }) => {
                 <Button
                     style={{ color: "white" }}
                     size="small"
-                    onClick={() => {}}
+                    onClick={() => setCurrentId(athlete._id)}
                 >
                     <MoreHorizIcon fontSize="default" />
                 </Button>
@@ -44,17 +45,22 @@ const Athlete = ({ athlete }) => {
             <div className={classes.details}>
                 {/* <Typography variant="body2" color="textSecondary">{athlete.sports.map((sport)=>`${sport} `)}</Typography> */}
                 <Typography variant="body2" color="textSecondary">
-                    {athlete.sports}
+                    {athlete.team}
                 </Typography>
             </div>
+
             <CardContent>
-                <Typography className={classes.title} variant="h5" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                     {athlete.about}
                 </Typography>
             </CardContent>
 
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => {}}>
+                <Button
+                    size="small"
+                    color="primary"
+                    onClick={() => dispatch(deleteAthlete(athlete._id))}
+                >
                     <ClearIcon fontSize="small" />
                     Remove
                 </Button>
