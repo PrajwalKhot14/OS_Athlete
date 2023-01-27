@@ -19,7 +19,7 @@ const Athlete = ({ athlete, setCurrentId }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     return (
-        <Card className={classes.card}>
+        <Card className={classes.card} raised elevation={6}>
             <CardMedia
                 className={classes.media}
                 image={athlete.profile_image}

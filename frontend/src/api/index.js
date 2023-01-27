@@ -5,3 +5,4 @@ export const fetchAthlete = () => axios.get(url);
 export const createAthlete = (newAthlete) => axios.post(url, newAthlete);
 export const updateAthlete = (id, updatedAthlete) => axios.patch(`${url}/${id}`, updatedAthlete)
 export const deleteAthlete = (id) => axios.delete(`${url}/${id}`)
+export const fetchAthleteBySearch = (searchQuery) => axios.get(`${url}/search?searchQuery=${searchQuery.search || 'none'}`)

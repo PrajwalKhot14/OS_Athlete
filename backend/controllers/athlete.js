@@ -11,6 +11,19 @@ export const getAthlete = async (req, res) => {
     }
 };
 
+export const getAthleteBySearch = async (req, res) => {
+    const {searchQuery} = req.query;
+
+    try {
+        const name = new RegExp(searchQuery, 'i');
+        console.log(searchQuery)
+        const athleteProf= await AthleteProfile.find({$or:[{name}]});
+        res.json(athleteProf);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
 export const createAthlete = async (req, res) => {
     const athlete = req.body;
 

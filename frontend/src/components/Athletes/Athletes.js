@@ -18,8 +18,7 @@ const Athletes = ({ setCurrentId }) => {
             spacing={3}
         >
             {athletes.map((ath) => (
-
-                <Grid key={ath._id} item xs={12} sm={6} md={6}>
+                <Grid key={ath._id} item xs={12} sm={6} md={6} lg={3}>
                     <Athlete athlete={ath} setCurrentId={setCurrentId} />
                 </Grid>
             ))}

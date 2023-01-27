@@ -1,5 +1,5 @@
 import express from "express";
-import {
+import {getAthleteBySearch,
     getAthlete,
     createAthlete,
     updateAthlete,
@@ -7,7 +7,7 @@ import {
 } from "../controllers/athlete.js";
 
 const router = express.Router();
-
+router.get("/search", getAthleteBySearch);
 router.get("/", getAthlete);
 router.post("/", createAthlete);
 router.patch("/:id", updateAthlete);
