@@ -4,6 +4,7 @@ import useStyles from "./styles";
 import athletes from "../../reducers/athletes";
 import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
+import { createAthlete } from "../../actions/athletes";
 
 const Form = () => {
     const [athleteData, setAthleteData] = useState({
@@ -19,7 +20,10 @@ const Form = () => {
     });
     const classes = useStyles();
     const dispatch = useDispatch();
-    const handleSubmit = () => {};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(createAthlete(athleteData));
+    };
     const clear = () => {};
     return (
         <Paper className={classes.paper}>
