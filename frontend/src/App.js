@@ -8,7 +8,7 @@ import Form from "./components/Form/Form";
 import useStyles from "./styles";
 import { getAthletes } from "./actions/athletes";
 // import {StrictMode} from 'react';
-import Paginate from "./components/Pagination";
+
 
 import athlete from "./images/athlete.png";
 function App() {
@@ -56,9 +56,7 @@ function App() {
                                 currentId={currentId}
                                 setCurrentId={setCurrentId}
                             />
-                            <Paper elevation={6}>
-                                <Paginate></Paginate>
-                            </Paper>
+                            
                         </Grid>
                     </Grid>
                 </Container>

@@ -27,7 +27,7 @@ const Athlete = ({ athlete, setCurrentId }) => {
             />
             <div className={classes.overlay}>
                 <Typography variant="h5">{athlete.name}</Typography>
-                <Typography variant="h">{athlete.location}</Typography>
+                <Typography variant="h6">{athlete.location}</Typography>
                 <Typography variant="body2">
                     {moment().diff(athlete.dob, "years")} years
                 </Typography>
