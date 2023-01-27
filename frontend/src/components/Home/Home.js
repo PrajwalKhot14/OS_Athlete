@@ -31,9 +31,9 @@ const Home = () => {
     const page = query.get("page") || 1;
     const searchQuery = query.get("searchQuery");
     const classes = useStyles();
-    useEffect(() => {
-        dispatch(getAthletes());
-    }, [currentId, dispatch]);
+    // useEffect(() => {
+    //     dispatch(getAthletes());
+    // }, [currentId, dispatch]);
 
     const searchAthlete = () =>{
         if(search.trim()){
@@ -94,7 +94,7 @@ const Home = () => {
                             setCurrentId={setCurrentId}
                         />
                         <Paper elevation={6}>
-                            <Pagination />
+                            <Pagination page={page}/>
                         </Paper>
                     </Grid>
                 </Grid>

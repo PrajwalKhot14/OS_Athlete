@@ -2,22 +2,33 @@ import mongoose from "mongoose";
 import AthleteProfile from "../models/athleteProfile.js";
 
 export const getAthlete = async (req, res) => {
+    const { page } = req.query;
     try {
-        const athleteProfile = await AthleteProfile.find();
+        const LIMIT = 4;
+        const startIndex = (Number(page) - 1) * LIMIT;
+        const total = await AthleteProfile.countDocuments({});
+        const athleteProf = await AthleteProfile.find()
+            .sort({ _id: -1 })
+            .limit(LIMIT)
+            .skip(startIndex);
 
-        res.status(200).json(athleteProfile);
+        res.json({
+            data: athleteProf,
+            currentPage: Number(page),
+            numberOfPages: Math.ceil(total / LIMIT),
+        });
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 };
 
 export const getAthleteBySearch = async (req, res) => {
-    const {searchQuery} = req.query;
+    const { searchQuery } = req.query;
 
     try {
-        const name = new RegExp(searchQuery, 'i');
-        console.log(searchQuery)
-        const athleteProf= await AthleteProfile.find({$or:[{name}]});
+        const name = new RegExp(searchQuery, "i");
+        // console.log(searchQuery);
+        const athleteProf = await AthleteProfile.find({ $or: [{ name }] });
         res.json(athleteProf);
     } catch (error) {
         res.status(404).json({ message: error.message });

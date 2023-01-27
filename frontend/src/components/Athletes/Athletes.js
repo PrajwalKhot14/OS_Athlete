@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 
 const Athletes = ({ setCurrentId }) => {
     const classes = useStyles();
-    const athletes = useSelector((state) => state.athletes);
+    const { athletes } = useSelector((state) => state.athletes);
 
-    return !athletes.length ? (
+    return !athletes?.length ? (
         <CircularProgress />
     ) : (
         <Grid
