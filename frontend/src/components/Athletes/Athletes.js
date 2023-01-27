@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 
 const Athletes = ({ setCurrentId }) => {
     const classes = useStyles();
-    const { athletes } = useSelector((state) => state.athletes);
+    const athletes = useSelector((state) => state.athletes);
 
-    return !athletes?.length ? (
+    return !athletes.length ? (
         <CircularProgress />
     ) : (
         <Grid
@@ -18,8 +18,7 @@ const Athletes = ({ setCurrentId }) => {
             spacing={3}
         >
             {athletes.map((ath) => (
-
-                <Grid key={ath._id} item xs={12} sm={6} md={6}>
+                <Grid key={ath._id} item xs={12} sm={6} md={6} lg={3}>
                     <Athlete athlete={ath} setCurrentId={setCurrentId} />
                 </Grid>
             ))}
