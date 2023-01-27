@@ -22,6 +22,7 @@ export const getAthlete = async (req, res) => {
     }
 };
 
+<<<<<<< HEAD
 export const getAthleteBySearch = async (req, res) => {
     const { searchQuery } = req.query;
 
@@ -35,6 +36,8 @@ export const getAthleteBySearch = async (req, res) => {
     }
 };
 
+=======
+>>>>>>> parent of 43271fc (Add search func)
 export const createAthlete = async (req, res) => {
     const athlete = req.body;
 

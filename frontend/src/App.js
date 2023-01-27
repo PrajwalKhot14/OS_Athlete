@@ -16,11 +16,12 @@ function App() {
             <Navbar/>
             <Switch>
                 <Route path="/" exact component={()=><Redirect to="/athlete" />}/>
-                <Route path="/athlete"exact component={Home}/>
-                <Route path="/athlete/search"exact component={Home}/>
+                <Route path="/athlete" exact component={Home}/>
+                <Route path="/athlete/search" component={Home}/>
                 <Route path="/athlete/:id" component={AthleteDetails}/>
+
             </Switch>
-            {/* <Home/> */}
+            <Home/>
         </Container>
         </BrowserRouter>
         

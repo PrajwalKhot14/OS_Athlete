@@ -1,31 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {
-    Container,
-    Grow,
-    Grid,
-    Paper,
-    AppBar,
-    TextField,
-    Button,
-} from "@material-ui/core";
+import { Container, Grow, Grid, Paper } from "@material-ui/core";
 import Athletes from "../Athletes/Athletes";
 import Form from "../Form/Form";
 import { useDispatch } from "react-redux";
-// import { getAthletes } from "../../actions/athletes";
-import Pagination from "../Pagination";
-import { useHistory, useLocation } from "react-router-dom";
-import ChipInput from "material-ui-chip-input";
-import useStyles from "./styles";
-import { getAthletes, getAthleteBySearch } from "../../actions/athletes";
-
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
-
+import { getAthletes } from "../../actions/athletes";
+import Pagination from '../Pagination';
 const Home = () => {
     const [currentId, setCurrentId] = useState(null);
-    const [search, setSearch] = useState('');
+    // const classes = useStyles();
     const dispatch = useDispatch();
+<<<<<<< HEAD
     const query = useQuery();
     const history = useHistory();
     const page = query.get("page") || 1;
@@ -51,50 +35,35 @@ const Home = () => {
     }
 
 
+=======
+
+    useEffect(() => {
+        dispatch(getAthletes());
+    }, [currentId, dispatch]);
+>>>>>>> parent of 43271fc (Add search func)
     return (
         <Grow in>
-            <Container maxWidth="xl">
+            <Container>
                 <Grid
                     container
                     justifyContent="space-between"
                     alignItems="stretch"
-                    spacing={3}
-                    className={classes.gridContainer}
+                    spacing={1}
                 >
                     <Grid item xs={12} sm={6} md={8}>
                         <Athletes setCurrentId={setCurrentId} />
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <AppBar
-                            className={classes.appBarSearch}
-                            position="static"
-                            color="inherit"
-                        >
-                            <TextField
-                                onKeyDown={handleKeyPress}
-                                name="search"
-                                variant="outlined"
-                                label="Search Athlete"
-                                fullWidth
-                                value={search}
-                                onChange={(e) => setSearch(e.target.value)}
-                            />
-
-                            <Button
-                                onClick={searchAthlete}
-                                className={classes.searchButton}
-                                variant="contained"
-                                color="primary"
-                            >
-                                Search
-                            </Button> 
-                        </AppBar>
                         <Form
                             currentId={currentId}
                             setCurrentId={setCurrentId}
                         />
                         <Paper elevation={6}>
+<<<<<<< HEAD
                             <Pagination page={page}/>
+=======
+                            <Pagination/>
+>>>>>>> parent of 43271fc (Add search func)
                         </Paper>
                     </Grid>
                 </Grid>
