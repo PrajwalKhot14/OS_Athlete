@@ -26,8 +26,8 @@ const Athlete = ({ athlete, setCurrentId }) => {
                 name={athlete.name}
             />
             <div className={classes.overlay}>
-                <Typography variant="h4">{athlete.name}</Typography>
-                <Typography variant="h6">{athlete.location}</Typography>
+                <Typography variant="h5">{athlete.name}</Typography>
+                <Typography variant="h">{athlete.location}</Typography>
                 <Typography variant="body2">
                     {moment().diff(athlete.dob, "years")} years
                 </Typography>
@@ -44,13 +44,15 @@ const Athlete = ({ athlete, setCurrentId }) => {
             </div>
             <div className={classes.details}>
                 {/* <Typography variant="body2" color="textSecondary">{athlete.sports.map((sport)=>`${sport} `)}</Typography> */}
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" color="textSecondary" component="h2">
                     {athlete.team}
                 </Typography>
             </div>
-
+            <Typography className={classes.title}  variant="h5" gutterBottom  component="h2">
+                {athlete.sports}
+            </Typography>
             <CardContent>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="body2" color="textSecondary" component="p">
                     {athlete.about}
                 </Typography>
             </CardContent>
