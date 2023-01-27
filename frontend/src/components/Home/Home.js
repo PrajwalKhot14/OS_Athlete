@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grow, Grid } from "@material-ui/core";
+import { Container, Grow, Grid, Paper } from "@material-ui/core";
 import Athletes from "../Athletes/Athletes";
 import Form from "../Form/Form";
 import { useDispatch } from "react-redux";
 import { getAthletes } from "../../actions/athletes";
-
+import Pagination from '../Pagination';
 const Home = () => {
     const [currentId, setCurrentId] = useState(null);
     // const classes = useStyles();
@@ -30,6 +30,9 @@ const Home = () => {
                             currentId={currentId}
                             setCurrentId={setCurrentId}
                         />
+                        <Paper elevation={6}>
+                            <Pagination/>
+                        </Paper>
                     </Grid>
                 </Grid>
             </Container>

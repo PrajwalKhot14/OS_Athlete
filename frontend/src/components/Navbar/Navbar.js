@@ -1,11 +1,12 @@
 import React from "react";
 import { AppBar, Typography, Toolbar } from "@material-ui/core";
 import useStyles from "./styles";
-import {Link} from 'react-router-dom'
+import {Link, useHistory, useLocation} from 'react-router-dom'
 
 import athlete from "../../images/athlete.png";
 const Navbar = () => {
     const classes = useStyles();
+    const location = useLocation();
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
