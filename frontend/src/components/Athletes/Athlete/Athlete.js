@@ -23,12 +23,16 @@ const Athlete = ({ athlete, setCurrentId }) => {
     const history = useHistory()
     const openAthlete = () => history.push(`/athlete/${athlete._id}`)
     return (
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <Card className={classes.card}>
 =======
         <Card className={classes.card} raised elevation={6}>
             
 >>>>>>> Stashed changes
+=======
+        <Card className={classes.card}>
+>>>>>>> parent of 43271fc (Add search func)
             <CardMedia
                 className={classes.media}
                 image={athlete.profile_image}

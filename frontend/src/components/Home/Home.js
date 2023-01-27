@@ -12,6 +12,7 @@ const Home = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const query = useQuery();
     const history = useHistory();
     const page = query.get("page") || 1;
@@ -42,12 +43,17 @@ const Home = () => {
 >>>>>>> parent of 43271fc (Add search func)
 =======
 >>>>>>> parent of 43271fc (Add search func)
+=======
+>>>>>>> parent of 43271fc (Add search func)
 
     useEffect(() => {
         dispatch(getAthletes());
     }, [currentId, dispatch]);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 43271fc (Add search func)
+=======
 >>>>>>> parent of 43271fc (Add search func)
 =======
 >>>>>>> parent of 43271fc (Add search func)
@@ -75,10 +81,14 @@ const Home = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                         <Paper elevation={0}>
 >>>>>>> Stashed changes
                             <Pagination page={page}/>
+=======
+                            <Pagination/>
+>>>>>>> parent of 43271fc (Add search func)
 =======
                             <Pagination/>
 >>>>>>> parent of 43271fc (Add search func)
