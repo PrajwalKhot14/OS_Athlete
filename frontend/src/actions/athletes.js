@@ -1,10 +1,11 @@
 import * as api from '../api';
+import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
 
 // Action creators
 export const getAthletes = () => async (dispatch) => {
     try {
         const {data } = await api.fetchAthlete();
-        dispatch({type: 'FETCH_ALL', payload: data});
+        dispatch({type: FETCH_ALL, payload: data});
     } catch (error) {
         console.log(error);
     }
@@ -13,7 +14,7 @@ export const getAthletes = () => async (dispatch) => {
 export const createAthlete = (athlete) => async (dispatch)=> {
     try {
         const {data} = await api.createAthlete(athlete);
-        dispatch({type: 'CREATE', payload: data});
+        dispatch({type: CREATE, payload: data});
     } catch (error) {
         console.log(error);
     }
@@ -22,7 +23,7 @@ export const createAthlete = (athlete) => async (dispatch)=> {
 export const updateAthlete = (id, athlete) => async (dispatch)=> {
     try {
         const {data} = await api.updateAthlete(id, athlete);
-        dispatch({type: 'UPDATE', payload: data});
+        dispatch({type: UPDATE, payload: data});
     } catch (error) {
         console.log(error);
     }
@@ -31,7 +32,7 @@ export const updateAthlete = (id, athlete) => async (dispatch)=> {
 export const deleteAthlete = (id) => async (dispatch)=> {
     try {
         await api.deleteAthlete(id);
-        dispatch({type: 'DELETE', payload: id});
+        dispatch({type: DELETE, payload: id});
     } catch (error) {
         console.log(error);
     }

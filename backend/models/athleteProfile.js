@@ -9,8 +9,8 @@ const athleteSchema = mongoose.Schema({
     sports: [String],
     about: String,
     interests: [String],
-    profile_image: String
+    profile_image: String,
 });
 
-const AthleteProfile = mongoose.model('AthleteProfile', athleteSchema);
+const AthleteProfile = mongoose.model("AthleteProfile", athleteSchema);
 export default AthleteProfile;

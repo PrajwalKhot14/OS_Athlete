@@ -47,6 +47,5 @@ export const deleteAthlete = async (req, res) => {
 
     await AthleteProfile.findByIdAndRemove(_id);
 
-
     res.json({ message: "Athlete Deleted" });
 };
