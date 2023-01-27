@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import mongoose from "mongoose";
 import AthleteProfile from "../models/athleteProfile.js";
 
@@ -8,6 +6,30 @@ export const getAthlete = async (req, res) => {
         const athleteProfile = await AthleteProfile.find();
 
         res.status(200).json(athleteProfile);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
+export const getOneAthlete = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const oneAthlete = await AthleteProfile.find(id);
+
+        res.status(200).json(oneAthlete);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
+export const getAthleteBySearch = async (req, res) => {
+    const {searchQuery} = req.query;
+
+    try {
+        const name = new RegExp(searchQuery, 'i');
+        console.log(searchQuery)
+        const athleteProf= await AthleteProfile.find({$or:[{name}]});
+        res.json(athleteProf);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
@@ -51,4 +73,3 @@ export const deleteAthlete = async (req, res) => {
 
     res.json({ message: "Athlete Deleted" });
 };
->>>>>>> parent of 43271fc (Add search func)
