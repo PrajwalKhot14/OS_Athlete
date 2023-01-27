@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import useStyles from "./styles";
-import athletes from "../../reducers/athletes";
+// import athletes from "../../reducers/athletes";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { createAthlete, updateAthlete } from "../../actions/athletes";
