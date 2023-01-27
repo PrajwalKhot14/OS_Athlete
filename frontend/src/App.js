@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import { Container, AppBar, Typography, Grow, Grid, Paper } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
 import Athletes from "./components/Athletes/Athletes";
@@ -8,6 +8,7 @@ import Form from "./components/Form/Form";
 import useStyles from "./styles";
 import { getAthletes } from "./actions/athletes";
 // import {StrictMode} from 'react';
+import Paginate from "./components/Pagination";
 
 import athlete from "./images/athlete.png";
 function App() {
@@ -55,6 +56,9 @@ function App() {
                                 currentId={currentId}
                                 setCurrentId={setCurrentId}
                             />
+                            <Paper elevation={6}>
+                                <Paginate></Paginate>
+                            </Paper>
                         </Grid>
                     </Grid>
                 </Container>
