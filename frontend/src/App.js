@@ -48,7 +48,7 @@ function App() {
                         alignItems="stretch"
                         spacing={1}
                     >
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={6} md={8}>
                             <Athletes setCurrentId={setCurrentId} />
                         </Grid>
                         <Grid item xs={12} sm={4}>
