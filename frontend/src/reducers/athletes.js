@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {
     FETCH_BY_SEARCH,
     FETCH_ALL,
@@ -6,6 +7,9 @@ import {
     UPDATE,
     DELETE,
 } from "../constants/actionTypes";
+=======
+import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+>>>>>>> parent of 43271fc (Add search func)
 =======
 import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
 >>>>>>> parent of 43271fc (Add search func)

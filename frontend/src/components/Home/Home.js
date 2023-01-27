@@ -10,6 +10,7 @@ const Home = () => {
     // const classes = useStyles();
     const dispatch = useDispatch();
 <<<<<<< HEAD
+<<<<<<< HEAD
     const query = useQuery();
     const history = useHistory();
     const page = query.get("page") || 1;
@@ -36,10 +37,15 @@ const Home = () => {
 
 
 =======
+=======
+>>>>>>> parent of 43271fc (Add search func)
 
     useEffect(() => {
         dispatch(getAthletes());
     }, [currentId, dispatch]);
+<<<<<<< HEAD
+>>>>>>> parent of 43271fc (Add search func)
+=======
 >>>>>>> parent of 43271fc (Add search func)
     return (
         <Grow in>
@@ -60,7 +66,11 @@ const Home = () => {
                         />
                         <Paper elevation={6}>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <Pagination page={page}/>
+=======
+                            <Pagination/>
+>>>>>>> parent of 43271fc (Add search func)
 =======
                             <Pagination/>
 >>>>>>> parent of 43271fc (Add search func)
